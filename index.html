@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="login-container">
+    <form id="login-form" onsubmit="redirectToPage(event)" method="GET">
+        <label for="username">Nama:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="date-of-birth">Tanggal Lahir:</label>
+        <input type="date" id="date-of-birth" name="date-of-birth" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+function redirectToPage(event) {
+    event.preventDefault();
+    var username = document.getElementById('username').value;
+    var dateOfBirth = document.getElementById('date-of-birth').value;
+
+    // Ubah tanggal lahir menjadi objek Date
+    var dob = new Date(dateOfBirth);
+    // Tanggal lahir yang diinginkan
+    var targetDate = new Date('2008-03-31');
+
+    // URL pengalihan
+    var redirectUrl = '';
+
+    // Bandingkan tanggal lahir dengan tanggal yang diinginkan
+    if (dob.getDate() === targetDate.getDate() &&
+        dob.getMonth() === targetDate.getMonth() &&
+        dob.getFullYear() === targetDate.getFullYear()) {
+        // Jika sesuai, arahkan ke situs lain
+        redirectUrl = 'https://eangg1.github.io/kue-buat-wawa/';
+    } else {
+        // Jika tidak sesuai, arahkan ke link yang sama
+        redirectUrl = 'https://eangg1.github.io/error/';
+    }
+
+    // Redirect ke URL yang sesuai
+    window.location.href = redirectUrl;
+}
+</script>
+
+</body>
+</html>
