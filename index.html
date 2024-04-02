@@ -23,26 +23,25 @@ function redirectToPage(event) {
     var username = document.getElementById('username').value;
     var dateOfBirth = document.getElementById('date-of-birth').value;
 
-    // Ubah tanggal lahir menjadi objek Date
+ 
     var dob = new Date(dateOfBirth);
-    // Tanggal lahir yang diinginkan
+ 
     var targetDate = new Date('2008-03-31');
 
-    // URL pengalihan
+ 
     var redirectUrl = '';
 
-    // Bandingkan tanggal lahir dengan tanggal yang diinginkan
     if (dob.getDate() === targetDate.getDate() &&
         dob.getMonth() === targetDate.getMonth() &&
         dob.getFullYear() === targetDate.getFullYear()) {
-        // Jika sesuai, arahkan ke situs lain
+   
         redirectUrl = 'https://eangg1.github.io/heloo/';
     } else {
-        // Jika tidak sesuai, arahkan ke link yang sama
+      
         redirectUrl = 'https://eangg1.github.io/error/';
     }
 
-    // Redirect ke URL yang sesuai
+ 
     window.location.href = redirectUrl;
 }
 </script>
